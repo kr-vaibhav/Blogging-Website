@@ -1,60 +1,51 @@
-import { Appbar } from "../components/Appbar"
-import { useBlogs } from "../hooks/index"
-import { BlogCard } from "../components/BlogCard"
+import { Appbar } from "../components/Appbar";
+import { useBlogs } from "../hooks/index";
+import { BlogCard } from "../components/BlogCard";
 import { BlogSkeleton } from "../components/BlogSkeleton";
 
-export const Blogs = ()=>{
+export const Blogs = () => {
+  const { loading, blogs } = useBlogs();
 
-    const { loading, blogs } = useBlogs(); 
-
-    if(loading){
-        return <div>
-            <Appbar/>
-            <BlogSkeleton/>
-            <BlogSkeleton/>
-            <BlogSkeleton/>
-            <BlogSkeleton/>
-            <BlogSkeleton/>
-            <BlogSkeleton/>
-        </div>
-    }
-
+  if (loading) {
     return (
-
-        <div>
-
+      <div>
         <Appbar />
-            {console.log("whether data is being stored in useBlog", blogs)};
+        <BlogSkeleton />
+        <BlogSkeleton />
+        <BlogSkeleton />
+        <BlogSkeleton />
+        <BlogSkeleton />
+        <BlogSkeleton />
+      </div>
+    );
+  }
 
-        <div className="flex justify-center">
-            
-                <div className="max-w-xl">
+  return (
+    <div>
+      <Appbar />
 
-                    {
-                        blogs.map( blog => <BlogCard
-                            authorName={blog.author.name || "Anonymus"}
-                            publishedDate={"26th of June 2024"}
-                            id={blog.id}
-                            title={blog.title}
-                            content={blog.content} 
-                            />
-                            )
-                    }
-                
-
-                </div>
-
-            </div>
-
+      <div className="flex justify-center">
+        <div className="max-w-xl">
+          {blogs.map((blog) => (
+            <BlogCard
+              authorName={blog.author.name || "Anonymus"}
+              publishedDate={"26th of June 2024"}
+              id={blog.id}
+              title={blog.title}
+              content={blog.content}
+            />
+          ))}
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-// {blogs.map( blog=> <BlogCard 
+// {blogs.map( blog=> <BlogCard
 //     authorName={blog.author.name || "Anonymus"}
-//     publishedDate={"22/6/24"} 
+//     publishedDate={"22/6/24"}
 //     id={blog.id}
-//     title={blog.title} 
+//     title={blog.title}
 //     content={blog.content}
 //     />
 // }

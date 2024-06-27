@@ -11,9 +11,6 @@ export interface Blog{
         }
 }
 
-interface useBlogProps{
-    id : string;
-}
 
 export const useBlog = ({ id }: { id: string }) => {
     const [loading, setLoading] = useState(true);

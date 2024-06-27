@@ -3,15 +3,17 @@ import { useParams } from "../../node_modules/react-router-dom/dist/index";
 import { FullBlog } from "../components/FullBlog";
 import { BlogSkeleton } from "../components/BlogSkeleton";
 import { Appbar } from "../components/Appbar";
+import {useParams} from "react-router-dom";
+import { useBlog } from "../hooks/index";
 
 export const Blog = ()=>{
     const { id } = useParams<{id: string}>();
-    const cleanedId = id.replace(':','');
+    const cleanedId = id?.replace(':','')||"";
     const {loading, blog } = useBlog({
-        id : cleanedId || ""
+        id : cleanedId
     });
     
-    if(loading){
+    if(loading || !blog){
         return <div>
             <Appbar/>
             <BlogSkeleton />

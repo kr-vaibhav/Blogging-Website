@@ -1,6 +1,5 @@
 import { Auth } from "../components/Auth"
 import { Quote } from "../components/Quotes"
-import React from 'react';
 
 export const Signup = () => {
 
