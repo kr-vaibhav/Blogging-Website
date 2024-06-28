@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
-import { BACKEND_URL } from "../../config";
+import { BACKEND_URL } from "../config";
 
 export interface Blog{
         "title":  string,
         "content": string,
-        "id": string
+        "id": number
         "author": {
             "name": string
         }
@@ -48,9 +48,9 @@ export const useBlog = ({ id }: { id: string }) => {
 
 
 
-export const useBlogs = ( )=>{
+export const useBlogs = ()=>{
     const [loading,setLoading] = useState(true);
-    const [blogs,setBlogs] = useState<Blog>();
+    const [blogs,setBlogs] = useState<Blog[]>([]);
 
     const token = localStorage.getItem("token");
     console.log(token);

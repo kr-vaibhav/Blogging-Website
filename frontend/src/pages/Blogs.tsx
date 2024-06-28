@@ -20,25 +20,23 @@ export const Blogs = () => {
     );
   }
 
-  return (
-    <div>
+  return <div>
       <Appbar />
 
       <div className="flex justify-center">
         <div className="max-w-xl">
-          {blogs.map((blog) => (
-            <BlogCard
+          {blogs.map((blog) => <BlogCard
               authorName={blog.author.name || "Anonymus"}
               publishedDate={"26th of June 2024"}
               id={blog.id}
               title={blog.title}
               content={blog.content}
             />
-          ))}
+          )}
         </div>
       </div>
     </div>
-  );
+  
 };
 
 // {blogs.map( blog=> <BlogCard

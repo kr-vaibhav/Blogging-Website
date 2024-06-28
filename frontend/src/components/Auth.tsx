@@ -1,7 +1,7 @@
 import { Link, useNavigate} from "react-router-dom";
 import { signupInput } from "../../node_modules/@kr-vaibhav/blogging-website/dist/index";
 import { useState, ChangeEvent } from "react";
-import { BACKEND_URL } from "../../config";
+import { BACKEND_URL } from "../config";
 import axios from "axios";
 
 

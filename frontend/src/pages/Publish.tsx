@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from "react"
-import { BACKEND_URL } from "../../config"
+import { BACKEND_URL } from "../config"
 import axios from "axios";
 import { useNavigate } from "../../node_modules/react-router-dom/dist/index";
 import { Appbar } from "../components/Appbar";
